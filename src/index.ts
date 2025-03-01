@@ -1,4 +1,5 @@
 export function applyHead(headElements: { tag: string, attributes?: { [key: string]: string }, content?: string }[]) {
+  const fragment = document.createDocumentFragment();
   headElements.forEach(object => {
     const element = document.createElement(object.tag);
     if (object.attributes) {
@@ -9,6 +10,7 @@ export function applyHead(headElements: { tag: string, attributes?: { [key: stri
     if (object.content) {
       element.appendChild(document.createTextNode(object.content));
     }
-    document.head.appendChild(element);
+    fragment.appendChild(element);
   });
+  document.head.appendChild(fragment);
 }
