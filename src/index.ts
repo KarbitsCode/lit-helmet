@@ -4,7 +4,7 @@ export function applyHead(headElements: { tag: string, attributes?: { [key: stri
     const element = document.createElement(object.tag);
     if (object.attributes) {
       Object.keys(object.attributes).forEach(item => {
-        element.setAttribute(item, object.attributes?.[item] || '');
+        element.setAttribute(item, object.attributes?.[item] ?? '');
       });
     }
     if (object.content) {
